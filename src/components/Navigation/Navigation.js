@@ -66,9 +66,9 @@ export default function Navigation() {
     const useStyle = makeStyles({
         navContainer: {
             background: "transparent !important",
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'center',
+            width: '100% !important',
+            display: 'flex !important',
+            justifyContent: 'center !important',
             boxShadow: "0 0 0 0 !important"
         },
         navItem: {
@@ -97,7 +97,7 @@ export default function Navigation() {
     return (
         <Box sx={{ width: '100%' }}>
             <AppBar className={navContainer} position="fixed">
-                <Toolbar sx={{ maxWidth: '1135px !important' }}>
+                <Toolbar sx={{ width: '1135px !important', margin: '0 auto' }}>
 
                     <Typography
                         variant="h6"
