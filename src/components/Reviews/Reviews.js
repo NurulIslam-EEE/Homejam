@@ -15,10 +15,11 @@ const Reviews = () => {
     const useStyle = makeStyles({
         reviewSection: {
             width: '100%',
-            height: '370px',
+            height: '470px',
             background: '#0A0B1A',
             display: 'flex',
             justifyContent: 'center',
+            paddingBottom: '100px'
 
 
         },
@@ -29,7 +30,7 @@ const Reviews = () => {
             gridColumnGap: '26px',
             background: '#0A0B1A',
             maxWidth: '1300px !important',
-
+            position: 'relative',
             overflowX: 'scroll',
             overflowY: 'hidden',
             '&::-webkit-scrollbar': {
@@ -57,11 +58,19 @@ const Reviews = () => {
             color: '#FFFFFF',
 
 
+        },
+        underLineShow: {
+            width: '48px',
+            height: '3px',
+            position: 'absolute',
+            top: '50px',
+            left: '50px',
+            background: '#0259Eb'
         }
     });
     const {
         reviewContainer,
-        reviewCard, reviewBg, reviewSection
+        reviewCard, reviewBg, reviewSection, underLineShow
     } = useStyle();
     return (
         <Box className={reviewSection}>
@@ -164,6 +173,12 @@ const Reviews = () => {
                         </Box>
 
                     </Box>
+                </Box>
+                <Typography sx={{ color: 'white', position: 'absolute', padding: '0 50px', fontSize: '32px', top: '0' }}>
+                    Reviews
+                </Typography>
+                <Box className={underLineShow}>
+
                 </Box>
 
             </Box>

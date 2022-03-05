@@ -20,19 +20,21 @@ const UpcomingShows = () => {
     const useStyle = makeStyles({
         cardSection: {
             width: '100%',
-            height: '500px',
+            height: '800px',
             background: '#0A0B1A',
             display: 'flex',
             justifyContent: 'center',
+            padding: '150px 0'
         },
         cardContainer: {
 
             display: 'grid',
             padding: '50px',
+            paddingTop: '100px',
             gridTemplateColumns: 'repeat(4,1fr)',
             gridColumnGap: '26px',
             maxWidth: '1300px',
-
+            height: '550px',
 
             position: 'relative',
             overflowX: 'scroll',
@@ -57,11 +59,19 @@ const UpcomingShows = () => {
             height: '400px',
             borderRadius: '8px',
 
+        },
+        underLine: {
+            width: '48px',
+            height: '3px',
+            position: 'absolute',
+            top: '50px',
+            left: '50px',
+            background: '#0259Eb'
         }
 
     })
     const {
-        cardContainer, cardSection, showBg, showCard
+        cardContainer, cardSection, showBg, showCard, underLine
     } = useStyle();
     return (
 
@@ -165,9 +175,12 @@ const UpcomingShows = () => {
 
 
 
-                <Typography sx={{ color: 'white', position: 'absolute', padding: '0 50px', fontSize: '32px' }}>
+                <Typography sx={{ color: 'white', position: 'absolute', padding: '0 50px', fontSize: '32px', top: '0' }}>
                     Upcoming Shows
                 </Typography>
+                <Box className={underLine}>
+
+                </Box>
             </Box>
         </Box>
 
