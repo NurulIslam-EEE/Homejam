@@ -12,15 +12,26 @@ import s2 from '../../img/singer2.png';
 import s3 from '../../img/singer3.png';
 import s4 from '../../img/singer4.png';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { useTheme } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 const UpcomingShows = () => {
+    const theme = useTheme();
+    const useStyle = makeStyles({
+        cardContainer: {
+            display: 'flex', background: 'black', justifyContent: 'space-between', maxWidth: '1148px', maxHeight: '480px', margin: '0 auto'
+        }
+    })
+    const {
+        cardContainer
+    } = useStyle();
     return (
         <Box sx={{ background: 'black', width: '100%' }}>
             <Box >
                 <Typography sx={{ color: 'white' }}>
                     Upcoming Shows
                 </Typography>
-                <Box sx={{ display: 'flex', background: 'black', justifyContent: 'space-between', maxWidth: '1148px', maxHeight: '480px', margin: '0 auto' }}>
+                <Box sx={{}} className={cardContainer}>
                     <Card sx={{ maxWidth: 268, background: '#111229' }}>
                         <CardMedia
                             component="img"

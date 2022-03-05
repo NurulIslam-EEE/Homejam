@@ -10,6 +10,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { makeStyles } from '@mui/styles';
 import logo from '../../img/logo.png';
+import logo2 from '../../img/Vector (Stroke).png';
+import { Link } from 'react-router-dom';
+import { useTheme } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -24,6 +27,11 @@ const Search = styled('div')(({ theme }) => ({
         marginLeft: theme.spacing(1),
         width: 'auto',
     },
+    [theme.breakpoints.down('sm')]: {
+
+        width: '100px',
+        marginRight: '30px'
+    }
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -54,37 +62,52 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Navigation() {
+    const theme = useTheme();
     const useStyle = makeStyles({
         navContainer: {
             background: "transparent !important",
-
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
             boxShadow: "0 0 0 0 !important"
+        },
+        navItem: {
+            color: 'white',
+            textDecoration: 'none',
+            marginRight: '40px'
+        },
+        navIcon: {
+            [theme.breakpoints.up('sm')]: {
+                display: 'none !important'
+            }
+        },
+        navItem2: {
+            color: 'white',
+            textDecoration: 'none',
+            marginRight: '40px',
+            [theme.breakpoints.down('sm')]: {
+                display: 'none !important'
+            }
         }
     })
     const {
         navContainer,
+        navItem, navIcon, navItem2
     } = useStyle();
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ width: '100%' }}>
             <AppBar className={navContainer} position="fixed">
-                <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="open drawer"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
+                <Toolbar sx={{ maxWidth: '1135px !important' }}>
+
                     <Typography
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                        sx={{ flexGrow: 1, display: { sm: 'block' } }}
                     >
                         <img src={logo} alt="" />
                     </Typography>
+
                     <Search>
                         <SearchIconWrapper>
                             <SearchIcon />
@@ -94,6 +117,22 @@ export default function Navigation() {
                             inputProps={{ 'aria-label': 'search' }}
                         />
                     </Search>
+                    <Box >
+                        <Link className={navItem2} to='/'>Help</Link>
+                        <Link className={navItem2} to='/'>Account</Link>
+                        <Link className={navItem} to='/'><img src={logo2} alt="" /></Link>
+
+                    </Box>
+                    <IconButton
+                        size="large"
+                        edge="start"
+                        color="inherit"
+                        aria-label="open drawer"
+                        sx={{ mr: 2 }}
+                        className={navIcon}
+                    >
+                        <MenuIcon />
+                    </IconButton>
                 </Toolbar>
             </AppBar>
         </Box>
