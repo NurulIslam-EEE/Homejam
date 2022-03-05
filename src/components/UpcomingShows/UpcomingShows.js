@@ -19,7 +19,18 @@ const UpcomingShows = () => {
     const theme = useTheme();
     const useStyle = makeStyles({
         cardContainer: {
-            display: 'flex', background: 'black', justifyContent: 'space-between', maxWidth: '1148px', maxHeight: '480px', margin: '0 auto'
+            display: 'grid',
+            background: 'black',
+            gridTemplateColumns: 'repeat(4,1fr)',
+            gridColumnGap: '26px',
+            maxWidth: '1148px',
+            maxHeight: '480px',
+            margin: '0 auto',
+
+            overflow: 'scroll',
+            '&::-webkit-scrollbar': {
+                display: 'none'
+            }
         }
     })
     const {
@@ -31,7 +42,7 @@ const UpcomingShows = () => {
                 <Typography sx={{ color: 'white' }}>
                     Upcoming Shows
                 </Typography>
-                <Box sx={{}} className={cardContainer}>
+                <Box className={cardContainer}>
                     <Card sx={{ maxWidth: 268, background: '#111229' }}>
                         <CardMedia
                             component="img"
@@ -53,9 +64,6 @@ const UpcomingShows = () => {
                             <Button size="small">Learn More</Button>
                         </CardActions>
                     </Card>
-
-
-
 
                     <Card sx={{ maxWidth: 268, background: '#111229' }}>
                         <CardMedia
@@ -79,8 +87,6 @@ const UpcomingShows = () => {
                         </CardActions>
                     </Card>
 
-
-
                     <Card sx={{ maxWidth: 268, background: '#111229' }}>
                         <CardMedia
                             component="img"
@@ -102,7 +108,6 @@ const UpcomingShows = () => {
                             <Button size="small">Learn More</Button>
                         </CardActions>
                     </Card>
-
 
                     <Card sx={{ maxWidth: 268, background: '#111229' }}>
                         <CardMedia
