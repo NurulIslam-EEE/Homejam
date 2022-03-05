@@ -24,13 +24,14 @@ const Reviews = () => {
         },
         reviewContainer: {
             display: 'grid',
-            padding: '100px',
+            padding: '100px 50px',
             gridTemplateColumns: 'repeat(3,1fr)',
             gridColumnGap: '26px',
             background: '#0A0B1A',
             maxWidth: '1300px !important',
 
-            overflow: 'scroll',
+            overflowX: 'scroll',
+            overflowY: 'hidden',
             '&::-webkit-scrollbar': {
                 display: 'none'
             }
@@ -54,7 +55,7 @@ const Reviews = () => {
             height: '244px',
             background: '#0A0B1A',
             color: '#FFFFFF',
-            boxShadow: '-10px 20px 20px 20px linear-gradient(to right,#276C73,#5293E8)'
+
 
         }
     });

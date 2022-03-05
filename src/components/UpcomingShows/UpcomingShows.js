@@ -18,32 +18,58 @@ import { makeStyles } from '@mui/styles';
 const UpcomingShows = () => {
     const theme = useTheme();
     const useStyle = makeStyles({
+        cardSection: {
+            width: '100%',
+            height: '500px',
+            background: '#0A0B1A',
+            display: 'flex',
+            justifyContent: 'center',
+        },
         cardContainer: {
+
             display: 'grid',
-            background: 'black',
+            padding: '50px',
             gridTemplateColumns: 'repeat(4,1fr)',
             gridColumnGap: '26px',
-            maxWidth: '1148px',
-            maxHeight: '480px',
-            margin: '0 auto',
+            maxWidth: '1300px',
 
-            overflow: 'scroll',
+
+            position: 'relative',
+            overflowX: 'scroll',
+            overflowY: 'hidden',
             '&::-webkit-scrollbar': {
                 display: 'none'
             }
+        },
+        showBg: {
+            background: 'linear-gradient(to right,#301A68,#234C97)',
+            position: 'relative',
+            borderRadius: '8px',
+            width: '268px',
+            height: '400px'
+        },
+        showCard: {
+            position: 'absolute',
+            top: '11px',
+            right: '11px',
+            width: '268px',
+            background: '#111229 !important',
+            height: '400px',
+            borderRadius: '8px',
+
         }
+
     })
     const {
-        cardContainer
+        cardContainer, cardSection, showBg, showCard
     } = useStyle();
     return (
-        <Box sx={{ background: 'black', width: '100%' }}>
-            <Box >
-                <Typography sx={{ color: 'white' }}>
-                    Upcoming Shows
-                </Typography>
-                <Box className={cardContainer}>
-                    <Card sx={{ maxWidth: 268, background: '#111229' }}>
+
+        <Box className={cardSection}>
+
+            <Box className={cardContainer}>
+                <Box className={showBg}>
+                    <Card className={showCard}>
                         <CardMedia
                             component="img"
                             alt="green iguana"
@@ -64,8 +90,9 @@ const UpcomingShows = () => {
                             <Button size="small">Learn More</Button>
                         </CardActions>
                     </Card>
-
-                    <Card sx={{ maxWidth: 268, background: '#111229' }}>
+                </Box>
+                <Box className={showBg}>
+                    <Card className={showCard}>
                         <CardMedia
                             component="img"
                             alt="green iguana"
@@ -86,8 +113,9 @@ const UpcomingShows = () => {
                             <Button size="small">Learn More</Button>
                         </CardActions>
                     </Card>
-
-                    <Card sx={{ maxWidth: 268, background: '#111229' }}>
+                </Box>
+                <Box className={showBg}>
+                    <Card className={showCard}>
                         <CardMedia
                             component="img"
                             alt="green iguana"
@@ -108,8 +136,9 @@ const UpcomingShows = () => {
                             <Button size="small">Learn More</Button>
                         </CardActions>
                     </Card>
-
-                    <Card sx={{ maxWidth: 268, background: '#111229' }}>
+                </Box>
+                <Box className={showBg}>
+                    <Card className={showCard}>
                         <CardMedia
                             component="img"
                             alt="green iguana"
@@ -131,8 +160,17 @@ const UpcomingShows = () => {
                         </CardActions>
                     </Card>
                 </Box>
+
+
+
+
+
+                <Typography sx={{ color: 'white', position: 'absolute', padding: '0 50px', fontSize: '32px' }}>
+                    Upcoming Shows
+                </Typography>
             </Box>
         </Box>
+
     );
 };
 
