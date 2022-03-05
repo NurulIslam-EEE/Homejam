@@ -88,16 +88,23 @@ export default function Navigation() {
             [theme.breakpoints.down('sm')]: {
                 display: 'none !important'
             }
+        },
+        navToolbar: {
+            width: '1200px !important',
+            margin: '0 auto',
+            [theme.breakpoints.down('md')]: {
+                maxWidth: '90% !important',
+            }
         }
     })
     const {
         navContainer,
-        navItem, navIcon, navItem2
+        navItem, navIcon, navItem2, navToolbar
     } = useStyle();
     return (
         <Box sx={{ width: '100%' }}>
             <AppBar className={navContainer} position="fixed">
-                <Toolbar sx={{ width: '1135px !important', margin: '0 auto' }}>
+                <Toolbar className={navToolbar} >
 
                     <Typography
                         variant="h6"
